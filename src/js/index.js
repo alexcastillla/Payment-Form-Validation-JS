@@ -28,16 +28,8 @@ window.onload = () => {
     }
   }
 
-  function validacionNumerica(i) {
-    if (isNaN(i)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  function validacionNumerica(i) {
-    if (isNaN(i)) {
+  function validacionLetras(i) {
+    if (!isNaN(i)) {
       return true;
     } else {
       return false;
@@ -49,26 +41,29 @@ window.onload = () => {
 
     let checkErrorList = 0; // Generamos una lista a contador 0 para ir sumandole los imput disntitos al value predefinido.
 
-    if (cardImput.value == "" || validacion(cardImput.value) == true) {
+    if (cardImput.value == "" || validacionNumerica(cardImput.value) == true) {
       checkErrorList++; // al ser distinto sumamos +1 a la lista checkErrorList
       cardImput.classList.add("is-invalid"); // al ser distinto el valor añadimos un atributo de no validación
     } else {
       cardImput.classList.add("is-valid"); // al ser igual el valor añadimos un atributo de validación
     }
 
-    if (inputCVC.value == "") {
+    if (inputCVC.value == "" || validacionNumerica(inputCVC.value) == true) {
       checkErrorList++;
       inputCVC.classList.add("is-invalid");
     } else {
       inputCVC.classList.add("is-valid");
     }
-    if (amountImput.value == "") {
+    if (
+      amountImput.value == "" ||
+      validacionNumerica(amountImput.value) == true
+    ) {
       checkErrorList++;
       amountImput.classList.add("is-invalid");
     } else {
       amountImput.classList.add("is-valid");
     }
-    if (nameImput.value == "") {
+    if (nameImput.value == "" || validacionLetras(nameImput.value) == true) {
       checkErrorList++;
       nameImput.classList.add("is-invalid");
     } else {
