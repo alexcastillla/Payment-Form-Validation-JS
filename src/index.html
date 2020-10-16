@@ -1,207 +1,227 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Validation</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <script src="./js/index.js"></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Card Validation</title>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-		integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
-	<script src="./js/index.js"></script>
-</head>
-
-<body class="bg-secondary">
-	<div class="container-fluid text-center">
-		<form>
-			<div class="row justify-content-center">
-				<div class="column">
-					<div class="card m-5" style="width: 50rem; height: auto">
-						<div class="card-header">
-							<h3>El dominio "JavascriptSonLosPadr.es"</h3>
-							<h3>esta disponible</h3>
-							<h3>Proceda con el pago</h3>
-						</div>
-						<div class="card-body">
-							<!-- Mensajes de alerta en oculto para desplegarse en caso de is-valid o is-invalid -->
-							<div class="alert alert-danger" role="alert" style="display: none" id="error">
-								Comprueba si falta algun dato o si la tarjeta tiene dinero
-							</div>
-							<div class="alert alert-success" role="alert" style="display: none" id="success">
-								Todos los datos son correctos, ha sido usted timado, gracias
-							</div>
-							<!-- Aquí empiezan los distintos form imputs -->
-							<div class="form-row mt-3">
-								<div class="form-group col-md-6">
-									<label>Card Number</label>
-									<input
-                                        class="form-control"
-                                        type="text"
-                                        maxlength="16"
-                                        placeholder="0000 0000 0000 0000 0000"
-                                        id="cardNumber">
-                                    </imput>
-								</div>
-								<div class="form-group col-md-3">
-									<label>CVC</label>
-									<input
-                                        type="number"
-                                        class="form-control"
-                                        id="CVC"
-                                        placeholder="000"
-                                        maxlength="3"
-                                        minlength="3"
-                                        value=""></imput>
-								</div>
-								<div class="form-group col-md-3">
-									<label for="inputAmount">Amount</label>
-									<div class="input-group">
-										<span class="input-group-addon mr-1"><b>$</b></span>
-										<input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="0.00"
-                                            id="imputAmount"
-                                            pattern="^\d*(\.\d{0,2})?$"
-                                            value="">
-                                        </imput>
-									</div>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-6">
-									<label for="first-name">First Name</label>
-									<input type="text" id="first-name" class="form-control"></imput>
-								</div>
-								<div class="form-group col-md-6">
-									<label for="last-name">Last Name</label>
-									<input
-                                        type="text"
-                                        id="last-name"
-                                        class="form-control"
-                                        value="">
-                                    </imput>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-6">
-									<label for="city-name">City</label>
-									<input
-                                        type="text"
-                                        id="city-name"
-                                        class="form-control"
-                                        value="">
-                                    </imput>
-								</div>
-								<div class="form-group col-md-3">
-									<label for="state">State</label>
-									<select id="state" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>Alderaan</option>
-                                        <option>Takodana</option>
-                                        <option>Tatooine</option>
-                                        <option>Murcia</option>
-                                    </select>
-								</div>
-								<div class="form-group col-md-3">
-									<label for="postal-code">Zip Code</label>
-									<input
-                                        type="number"
-                                        id="postal-code"
-                                        class="form-control"
-                                        value="">
-                                    </imput>
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form col-4">
-									<label for="inputCARD">We accept:</label>
-									<div
-										class="form-row border justify-content-around rounded p-1 ml-1 bg-secondary text-white">
-										<div class="form-check ml-2">
-											<input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="exampleRadios"
-                                                id="inputCARDapple">
-                                            </imput>
-											    <label class="form-check-label" for="inputCARDapple">
-                                                    <i class="fab fa-cc-apple-pay"></i>
-                                                </label>
-										</div>
-										<div class="form-check ml-2">
-											<input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="exampleRadios"
-                                                id="inputCARDvisa">
-                                            </imput>
-											    <label class="form-check-label" for="inputCARDvisa">
-                                                    <i class="fab fa-cc-visa"></i>
-                                                </label>
-										    </div>
-										<div class="form-check ml-2">
-											<input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="exampleRadios"
-                                                id="inputCARDmaster"></imput>
-											<label class="form-check-label" for="inputCARDmaster">
-                                                <i class="fab fa-cc-mastercard"></i>
-                                                </label>
-										</div>
-										<div class="form-check ml-2 mr-2">
-											<input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="exampleRadios"
-                                                id="inputCARDamex"></imput>
-											<label class="form-check-label" for="inputCARDamex">
-                                                <i class="fab fa-cc-amex"></i>
-                                                </label>
-										</div>
-									</div>
-								</div>
-								<div class="form col-6 offset-2">
-									<label for="exampleFormControlTextarea1">Message</label>
-									<textarea
-                                        class="form-control"
-                                        id="message"
-                                        rows="3"
-                                        >
-                                    </textarea>
-									<small class="form-text text-muted">Add any notes here.</small>
-								</div>
-							</div>
-						</div>
-						<!-- Botones de envio y cancelar del form -->
-						<div class="card-footer">
-							<div class="row justify-content-end mr-0">
-								<a href="/index.html" class="btn btn-secondary m-1">
-									Cancel
-								</a>
-								<input
+  <body class="bg-secondary">
+    <div class="container-fluid text-center">
+      <form>
+        <div class="row justify-content-center">
+          <div class="column">
+            <div class="card m-5" style="width: 50rem; height: auto">
+              <div class="card-header">
+                <h3>El dominio "JavascriptSonLosPadr.es"</h3>
+                <h3>esta disponible</h3>
+                <h3>Proceda con el pago</h3>
+              </div>
+              <div class="card-body">
+                <!-- Mensajes de alerta en oculto para desplegarse en caso de is-valid o is-invalid -->
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  style="display: none"
+                  id="error"
+                >
+                  Comprueba si falta algun dato o si la tarjeta tiene dinero
+                </div>
+                <div
+                  class="alert alert-success"
+                  role="alert"
+                  style="display: none"
+                  id="success"
+                >
+                  Todos los datos son correctos, ha sido usted timado, gracias
+                </div>
+                <!-- Aquí empiezan los distintos form imputs -->
+                <div class="form-row mt-3">
+                  <div class="form-group col-md-6">
+                    <label>Card Number</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      maxlength="16"
+                      placeholder="0000 0000 0000 0000 0000"
+                      id="cardNumber"
+                    />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>CVC</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="CVC"
+                      placeholder="000"
+                      maxlength="3"
+                      minlength="3"
+                      value=""
+                    />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputAmount">Amount</label>
+                    <div class="input-group">
+                      <span class="input-group-addon mr-1"><b>$</b></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="0.00"
+                        id="imputAmount"
+                        pattern="^\d*(\.\d{0,2})?$"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" class="form-control" />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="last-name">Last Name</label>
+                    <input
+                      type="text"
+                      id="last-name"
+                      class="form-control"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="city-name">City</label>
+                    <input
+                      type="text"
+                      id="city-name"
+                      class="form-control"
+                      value=""
+                    />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="state">State</label>
+                    <select id="state" class="form-control">
+                      <option selected>Choose...</option>
+                      <option>Alderaan</option>
+                      <option>Takodana</option>
+                      <option>Tatooine</option>
+                      <option>Murcia</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="postal-code">Zip Code</label>
+                    <input
+                      type="number"
+                      id="postal-code"
+                      class="form-control"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form col-4">
+                    <label for="inputCARD">We accept:</label>
+                    <div
+                      class="form-row border justify-content-around rounded p-1 ml-1 bg-secondary text-white"
+                    >
+                      <div class="form-check ml-2">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="inputCARDapple"
+                        />
+                        <label class="form-check-label" for="inputCARDapple">
+                          <i class="fab fa-cc-apple-pay"></i>
+                        </label>
+                      </div>
+                      <div class="form-check ml-2">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="inputCARDvisa"
+                        />
+                        <label class="form-check-label" for="inputCARDvisa">
+                          <i class="fab fa-cc-visa"></i>
+                        </label>
+                      </div>
+                      <div class="form-check ml-2">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="inputCARDmaster"
+                        />
+                        <label class="form-check-label" for="inputCARDmaster">
+                          <i class="fab fa-cc-mastercard"></i>
+                        </label>
+                      </div>
+                      <div class="form-check ml-2 mr-2">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="exampleRadios"
+                          id="inputCARDamex"
+                        />
+                        <label class="form-check-label" for="inputCARDamex">
+                          <i class="fab fa-cc-amex"></i>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form col-6 offset-2">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="message" rows="3">
+                    </textarea>
+                    <small class="form-text text-muted"
+                      >Add any notes here.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Botones de envio y cancelar del form -->
+              <div class="card-footer">
+                <div class="row justify-content-end mr-0">
+                  <a href="/index.html" class="btn btn-secondary m-1">
+                    Cancel
+                  </a>
+                  <input
                     type="submit"
                     class="btn btn-primary m-1"
                     value="Send"
                   />
                 </div>
-							</div>
-						</div>
-					</div>
-				</div>
-		</form>
-	</div>
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-	</script>
-</body>
-
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

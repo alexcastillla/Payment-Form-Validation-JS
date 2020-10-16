@@ -20,12 +20,28 @@ const messageImput = document.querySelector("#message");
 window.onload = () => {
   let formValidation = document.querySelector("form");
 
+  function validacionNumerica(i) {
+    if (isNaN(i)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function validacionNumerica(i) {
+    if (isNaN(i)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   formValidation.addEventListener("submit", notsubmit => {
     notsubmit.preventDefault();
 
     let checkErrorList = 0; // Generamos una lista a contador 0 para ir sumandole los imput disntitos al value predefinido.
 
-    if (cardImput.value == "") {
+    if (cardImput.value == "" || validacion(cardImput.value) == true) {
       checkErrorList++; // al ser distinto sumamos +1 a la lista checkErrorList
       cardImput.classList.add("is-invalid"); // al ser distinto el valor añadimos un atributo de no validación
     } else {
