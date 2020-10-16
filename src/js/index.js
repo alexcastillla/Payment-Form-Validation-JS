@@ -20,6 +20,14 @@ const messageImput = document.querySelector("#message");
 window.onload = () => {
   let formValidation = document.querySelector("form");
 
+  function validacionNumerica(index) {
+    if (isNaN(index)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function validacionNumerica(i) {
     if (isNaN(i)) {
       return true;
