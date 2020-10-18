@@ -32,7 +32,8 @@
                   style="display: none"
                   id="error"
                 >
-                  Comprueba si falta algun dato o si la tarjeta tiene dinero
+                  Comprueba si falta algun dato o si la tarjeta dispone de
+                  dinero
                 </div>
                 <div
                   class="alert alert-success"
@@ -62,7 +63,6 @@
                       id="CVC"
                       placeholder="000"
                       maxlength="3"
-                      minlength="3"
                       value=""
                     />
                   </div>
@@ -138,6 +138,7 @@
                           type="radio"
                           name="exampleRadios"
                           id="inputCARDapple"
+                          checked
                         />
                         <label class="form-check-label" for="inputCARDapple">
                           <i class="fab fa-cc-apple-pay"></i>
@@ -180,8 +181,11 @@
                   </div>
                   <div class="form col-6 offset-2">
                     <label for="exampleFormControlTextarea1">Message</label>
-                    <textarea class="form-control" id="message" rows="3">
-                    </textarea>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="3"
+                    ></textarea>
                     <small class="form-text text-muted"
                       >Add any notes here.</small
                     >
@@ -198,6 +202,7 @@
                     type="submit"
                     class="btn btn-primary m-1"
                     value="Send"
+                    id="sendSubmit"
                   />
                 </div>
               </div>
